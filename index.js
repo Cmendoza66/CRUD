@@ -46,6 +46,7 @@ document.getElementById('add').addEventListener('click', () => {
     let row = tbody.insertRow(0);
     let cell = row.insertCell(0); // LOVE THIS!! -TW
     let actions = row.insertCell(3); // add this -TW
+    // row id <tr id="row1">
 
     // cell(0).innerHTML = document.getElementById('name').value; -TW
     row.insertCell(0).innerHTML = document.getElementById('name').value;
