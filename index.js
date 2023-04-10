@@ -19,12 +19,16 @@ document.getElementById('add').addEventListener('click', () => {
 
 });  */
 
-function createDeleteButton(id) {
+// createDeleteButton(id, elementToDelete) -TW
+function createDeleteButton(id) { // (id, elementToDelete) -TW
     let btn = document.createElement('button');
 
     // actions
-    btn.className = 'btn btn-info'; 
-    btn.id = `btn+${id}`; // <button id="btn1" class="btn btn-primary" onClick=()>Delete</button>
+    
+    // https://bobbyhadz.com/blog/javascript-add-multiple-classes-to-element
+    // add Multiple classes, not a space between
+    btn.className = 'btn-info'; // class btn-info -TW
+    btn.id = `btn${id}`; // // btn+1 <button id="btn1" class="btn btn-primary" onClick=()>Delete</button> // "55" + 5 = // "555" -TW
     btn.innerHTML = 'Delete';
     btn.onclick = () => {
         elementToDelete.parentNode.removeChild(elementToDelete);
@@ -32,22 +36,27 @@ function createDeleteButton(id) {
     return btn;
 }
 
+// function createEditButton(id, elementToEdit) { }
+
 //create a new row & add to table
+// event listener done correctly -TW
 document.getElementById('add').addEventListener('click', () => {
-    let createdName = new Name();
+    let createdName = new Name(); // unused var -TW
     let tbody = document.getElementById('tbody-items');
     let row = tbody.insertRow(0);
-    let cell = row.insertCell(0);
+    let cell = row.insertCell(0); // LOVE THIS!! -TW
+    let actions = row.insertCell(3); // add this -TW
 
+    // cell(0).innerHTML = document.getElementById('name').value; -TW
     row.insertCell(0).innerHTML = document.getElementById('name').value;
     row.insertCell(1).innerHTML = document.getElementById('phone-number').value;
     row.insertCell(2).innerHTML = document.getElementById('email').value;
 
-
+    // this won't work- need to declare 'actions'
     actions.appendChild(createDeleteButton(id));
+    // actions.appendChild(createEditButton(id, elementToEdit));
     document.getElementById('name').value = ' ';
-    addCounter(id);
-
+    addCounter(id); // $e, e let pushedButton = btn.selectedIndex(e); 
 });
 
 
